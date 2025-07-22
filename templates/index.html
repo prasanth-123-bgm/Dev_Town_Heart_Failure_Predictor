@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💓 Heart Failure Predictor</title>
+  <link rel="stylesheet" href="/static/Styling.css"</head>
+<body>
+  <div class="container">
+    <h1 class="title-wakeup"><span class="heart-pulse">💓</span> Heart Failure Risk Prediction</h1>
+    <form action="/predict" method="POST" class="grid-form">
+      
+      <input type="number" name="age" placeholder="Age" step="0.1" required class="field-arrival">
+      
+      <select name="anaemia" required class="field-arrival">
+        <option value="" disabled selected>Anaemia?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <input type="number" name="creatinine_phosphokinase" placeholder="Creatinine Phosphokinase" step="0.1" required class="field-arrival">
+
+      <select name="diabetes" required class="field-arrival">
+        <option value="" disabled selected>Diabetes?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <input type="number" name="ejection_fraction" placeholder="Ejection Fraction" step="0.1" required class="field-arrival">
+
+      <select name="high_blood_pressure" required class="field-arrival">
+        <option value="" disabled selected>High BP?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <input type="number" name="platelets" placeholder="Platelets" step="0.1" required class="field-arrival">
+      <input type="number" name="serum_creatinine" placeholder="Serum Creatinine" step="0.1" required class="field-arrival">
+      <input type="number" name="serum_sodium" placeholder="Serum Sodium" step="0.1" required class="field-arrival">
+
+      <select name="sex" required class="field-arrival">
+        <option value="" disabled selected>Sex</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select>
+
+      <select name="smoking" required class="field-arrival">
+        <option value="" disabled selected>Smoking?</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <input type="number" name="time" placeholder="Follow-up Period (Days)" required class="field-arrival">
+
+      <button type="submit" class="field-arrival">Predict 💡</button>
+    </form>
+
+    {% if prediction_text %}
+      <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
